@@ -201,4 +201,6 @@ describe CategoriesController, "SEO Options" do
     get 'show', :id => 'personal'
     response.should_not have_selector(expected)
   end
+  
+  #describe CategoriesController, "make new category" do
 end
