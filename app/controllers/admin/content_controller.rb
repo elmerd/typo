@@ -28,7 +28,7 @@ class Admin::ContentController < Admin::BaseController
   end
   
   def merge
-    if current_user.admin? and !params[:article_id].nil?
+    if current_user.admin? and !params[:article_id].blank?
       @ArticleOne = Article.find(params[:id])
       @ArticleOne.merge_with(params[:article_id])
       Article.find(params[:article_id]).destroy
