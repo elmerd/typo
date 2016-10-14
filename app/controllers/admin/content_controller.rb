@@ -29,11 +29,11 @@ class Admin::ContentController < Admin::BaseController
   
   def merge
     if current_user.admin?
-      if params[:id] != params[:article_id]
-        if !params[:article_id].nil?
+      if params[:id] != params[:merge_with]
+        if !params[:merge_with].nil?
            @ArticleOne = Article.find(params[:id])
-           @ArticleOne.merge_with(params[:article_id])
-           Article.find(params[:article_id]).destroy
+           @ArticleOne.merge_with(params[:merge_with])
+           Article.find(params[:merge_with]).destroy
         end
       end  
     end
