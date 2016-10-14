@@ -15,7 +15,7 @@ class ContentController < ApplicationController
        end
     end
   end
-
+  
   include LoginSystem
   before_filter :setup_themer
   helper :theme

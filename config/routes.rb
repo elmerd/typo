@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   match ':year/page/:page', :to => 'articles#index', :year => /\d{4}/, :as => 'articles_by_year_page', :format => false
 
   match 'admin', :to  => 'admin/dashboard#index', :format => false, :as => :admin_dashboard
-
+  
   match 'articles.:format', :to => 'articles#index', :constraints => {:format => 'rss'}, :as => 'rss'
   match 'articles.:format', :to => 'articles#index', :constraints => {:format => 'atom'}, :as => 'atom'
 
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
   match 'articles/markup_help/:id', :to => 'articles#markup_help', :format => false
   match 'articles/tag', :to => 'articles#tag', :format => false
   match 'articles/category', :to => 'articles#category', :format => false
-
+  
   # SetupController
   match '/setup', :to => 'setup#index', :format => false
   match '/setup/confirm', :to => 'setup#confirm', :format => false

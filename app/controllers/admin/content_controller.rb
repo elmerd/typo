@@ -26,6 +26,15 @@ class Admin::ContentController < Admin::BaseController
   def new
     new_or_edit
   end
+  
+  def merge
+    if current_user.admin? and !params[:article_id].nil?
+      @ArticleOne = Article.find(params[:id])
+      @ArticleOne.merge_with(params[:article_id])
+      Article.find(params[:article_id]).destroy
+    end
+    redirect_to admin_content_path
+  end
 
   def edit
     @article = Article.find(params[:id])
